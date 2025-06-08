@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subhoshri Pal</title>
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Z1gBLHUVFqAcZCJSzrqnpXczGgHo7cf6g3EFNxUNpjBvU81+2GBDbGiH1ZoZlDqzmnwLcqR9ZLo4fZ8aUPww1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+  <div id="preloader">
+  <div class="progress-wrapper">
+    <svg class="progress-ring" width="100" height="100">
+      <circle class="progress-ring__bg" cx="50" cy="50" r="45" />
+      <circle class="progress-ring__circle" cx="50" cy="50" r="45" />
+    </svg>
+    <div class="progress-text">0%</div>
+  </div>
+  <div id="wave"></div>
+  <div id="start-section">
+    <div class="logo-circle">
+      <span class="logo-char">S</span>
+    </div>
+    <button id="start-btn">START</button>
+  </div>
+</div>
+
+  <header class="header">
+    <div class="name">Subhoshri Pal</div>
+    <nav class="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home-section" id="home">
+    <div class="home-content">
+      <h1 class="slide-in">
+        HI I'M 
+        <br><span class="name-highlight">SUBHOSHRI</span><br>
+        <span class="surname">PAL</span>
+      </h1>
+      <span class="tagline slide-in">
+        Pixels, Code and Passion—my world of storytelling through creativity.
+      </span>
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <div class="about-content">
+      <div class="about-text" data-aos="fade-right" data-aos-duration="1000">
+        <h2>About Me</h2>
+        <p data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+          I'm a Machine Learning enthusiast with a love for creating beautiful websites. I enjoy coding, design, and everything in between.
+        </p>
+        <p data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+          With a background in Information Technology and a keen eye for design, I strive to solve problems that have a meaningful impact on society.
+        </p>
+        <p data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
+          When I'm not coding, you can find me reading books while enjoying a cup of coffee or taking a walk along nature.
+        </p>
+      </div>
+
+      <div class="about-image" data-aos="zoom-in-left" data-aos-duration="1000" aos-delay="300">
+        <img src="assets/abesit.png" alt="Subhoshri" />
+      </div>
+
+      <div class="learn-more" data-aos="zoom-in-left" data-aos-duration="1000" data-aos-delay="300">
+        <a href="assets/Subhoshri_s_Resume.pdf" target="_blank" title="View Resume">
+          <span>&#10148;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section" id="projects">
+    <h2 class="projects-title" data-aos="fade-up">My Projects</h2>
+
+    <div class="carousel-wrapper">
+      <button id="prevBtn">&#10094;</button>
+      <div class="carousel" id="carousel">
+        <div class="project-card" data-link="https://github.com/Subhoshri/Chatbot" onclick="openLink(this)">
+          <h3>Contextual Chatbot</h3>
+          <p class="tech-stack">Python, Flask, HTML, CSS, Javascript, Tensorflow</p>
+          <p class="description">A TensorFlow-based contextual chatbot that uses NLP and machine learning to provide meaningful responses to general and baking-related queries.</p>
+        </div>
+
+        <div class="project-card" data-link="https://github.com/Subhoshri/Quidditch-Quest" onclick="openLink(this)">
+          <h3>Quidditch Quest</h3>
+          <p class="tech-stack">HTML, CSS, Javascript</p>
+          <p class="description">A side-scrolling web game with obstacles and interactive trivia challenges inspired by the Harry Potter universe.</p>
+        </div>
+
+        <div class="project-card" data-link="https://github.com/Subhoshri/Spam-Detection" onclick="openLink(this)">
+          <h3>Spam Detection</h3>
+          <p class="tech-stack">Python, Scikit-learn</p>
+          <p class="description">Detects unwanted or malicious messages using natural language processing (NLP) techniques and classification algorithms.</p>
+        </div>
+
+        <div class="project-card" data-link="https://github.com/Subhoshri/Customer-Churn-Analysis" onclick="openLink(this)">
+          <h3>Customer Churn Analysis</h3>
+          <p class="tech-stack">Python, Scikit-learn</p>
+          <p class="description">A Machine Learning project to analyse the rate of customer churns for a telephone company.</p>
+        </div>
+
+        <div class="project-card" data-link="https://github.com/Subhoshri/Python-Projects" onclick="openLink(this)">
+          <h3>Python Projects</h3>
+          <p class="tech-stack">Python</p>
+          <p class="description">A fun collection of Python Projects like Scientific Calculator, Sudoku Generator and Solver, Youtube Video Downloader and others.</p>
+        </div>
+      </div>
+      <button id="nextBtn">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="experience-section" id="experience">
+  <h2 class="experience-title" data-aos="fade-up" data-aos-delay="200">Experience</h2>
+  <div class="timeline" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+      <div class="timeline-left">
+        <div class="timeline-title">Research Intern — IIT Kharagpur</div>
+        <div class="timeline-date">May-July 2025</div>
+      </div>
+      <div class="timeline-details">
+        <ul>
+          <li>Worked on parallel MRI reconstruction using K-space Transformers.</li>
+          <li>Preprocessed FastMRI dataset and built undersampling logic.</li>
+          <li>Adapted TransUNet & ViT models for medical imaging tasks.</li>
+          <li>Presented weekly research progress with PhD guides.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contest-section">
+  <h2 class="contest-title" data-aos="fade-up" data-aos-duration="1000">Contest Ratings</h2>
+  <div class="contest-cards" data-aos="fade-up" data-aos-duration="1000">
+    <!-- LeetCode -->
+    <div class="contest-card" data-aos="zoom-in-up" data-aos-delay="300">
+      <img src="https://images.icon-icons.com/2530/PNG/512/leetcode_button_icon_151892.png" alt="LeetCode">
+      <h3>LeetCode</h3>
+      <p><strong>ID:</strong> Cordelia720</p>
+      <p><strong>Rating:</strong> 1433</p>
+      <a href="https://leetcode.com/Cordelia720" target="_blank">View Profile</a>
+    </div>
+
+    <!-- Codeforces -->
+    <div class="contest-card" data-aos="zoom-in-up" data-aos-delay="300">
+      <img src="https://sta.codeforces.com/s/85972/images/codeforces-logo-with-telegram.png" alt="Codeforces">
+      <h3>Codeforces</h3>
+      <p><strong>ID:</strong> subhoshripal</p>
+      <p><strong>Rating:</strong> 1239 (Pupil)</p>
+      <a href="https://codeforces.com/profile/subhoshripal" target="_blank">View Profile</a>
+    </div>
+
+    <!-- CodeChef -->
+    <div class="contest-card" data-aos="zoom-in-up" data-aos-delay="300">
+      <img src="https://s3.amazonaws.com/codechef_shared/sites/all/themes/abessive/logo.svg" alt="CodeChef">
+      <h3>CodeChef</h3>
+      <p><strong>ID:</strong> subhoshripal</p>
+      <p><strong>Rating:</strong> 1538 (2★)</p>
+      <a href="https://www.codechef.com/users/subhoshripal" target="_blank">View Profile</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact-grid-section" id="contact">
+  <div class="contact-container" data-aos="fade-up">
+    <div class="social-icons-column" data-aos="fade-right">
+      <h3>CONNECT</h3>
+      <div class="social-links">
+        <div class="social-group">
+          <a href="https://leetcode.com/Cordelia720" target="_blank">▶ LeetCode</a>
+          <a href="https://codeforces.com/profile/subhoshripal" target="_blank">▶ Codeforces</a>
+          <a href="https://codechef.com/users/subhoshripal" target="_blank">▶ CodeChef</a>
+        </div>
+        <div class="social-group">
+          <a href="https://github.com/Subhoshri" target="_blank">▶ GitHub</a>
+          <a href="https://linkedin.com/in/subhoshri-pal2005" target="_blank">▶ LinkedIn</a>
+          <a href="https://medium.com/@subhoshripal" target="_blank">▶ Medium</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-details" data-aos="fade-left">
+      <div class="email">
+        <h4>Email</h4>
+        <p>subhoshripal@example.com</p>
+      </div>
+      <div class="phone">
+        <h4>Phone</h4>
+        <p>+91 9953403425</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-strip">
+  <div class="footer-strip-container">
+    <div class="footer-left">
+      &copy; 2025 Subhoshri Pal
+    </div>
+    <div class="footer-middle">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+  AOS.init({
+    duration: 1000,
+    once: false,
+    mirror: true
+  });
+</script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
