@@ -1,77 +1,78 @@
 window.addEventListener("DOMContentLoaded", () => {
-    const circle = document.querySelector(".progress-ring__circle");
-    const text = document.querySelector(".progress-text");
-    const wave = document.getElementById("wave");
-    const preloader = document.getElementById("preloader");
-    const startSection = document.getElementById("start-section");
-    const startBtn = document.getElementById("start-btn");
+  // ==================== Loader Animation ====================
+  const circle = document.querySelector(".progress-ring__circle");
+  const text = document.querySelector(".progress-text");
+  const wave = document.getElementById("wave");
+  const preloader = document.getElementById("preloader");
+  const startSection = document.getElementById("start-section");
+  const startBtn = document.getElementById("start-btn");
 
-    const radius = 45;
-    const circumference = 2 * Math.PI * radius;
-    circle.style.strokeDasharray = `${circumference}`;
+  const radius = 45;
+  const circumference = 2 * Math.PI * radius;
+  circle.style.strokeDasharray = `${circumference}`;
 
-    let progress = 0;
-    const updateProgress = () => {
-      const offset = circumference - (progress / 100) * circumference;
-      circle.style.strokeDashoffset = offset;
-      text.textContent = `${progress}%`;
-    };
+  let progress = 0;
+  const updateProgress = () => {
+    const offset = circumference - (progress / 100) * circumference;
+    circle.style.strokeDashoffset = offset;
+    text.textContent = `${progress}%`;
+  };
 
-    const interval = setInterval(() => {
-      progress += 1;
-      updateProgress();
-      if (progress >= 100) {
-        clearInterval(interval);
-        wave.style.bottom = "0";
-        setTimeout(() => {
-          document.querySelector(".progress-wrapper").style.display = "none";
-          startSection.style.visibility = "visible";
-          startSection.style.opacity = 1;
-        }, 1000);
-      }
-    }, 20);
+  const interval = setInterval(() => {
+    progress += 1;
+    updateProgress();
+    if (progress >= 100) {
+      clearInterval(interval);
+      wave.style.bottom = "0";
+      setTimeout(() => {
+        document.querySelector(".progress-wrapper").style.display = "none";
+        startSection.style.visibility = "visible";
+        startSection.style.opacity = 1;
+      }, 1000);
+    }
+  }, 20);
 
-    startBtn.addEventListener("click", () => {
-      preloader.style.opacity = 0;
-      preloader.style.pointerEvents = "none";
-      document.body.style.overflow = "auto";
+  startBtn.addEventListener("click", () => {
+    preloader.style.opacity = 0;
+    preloader.style.pointerEvents = "none";
+    document.body.style.overflow = "auto";
   });
-});
 
-let lastScrollTop = 0;
-const header = document.querySelector("header");
+  // ==================== Scroll-Based Header Hide/Show ====================
+  let lastScrollTop = 0;
+  const header = document.querySelector("header");
 
-window.addEventListener("scroll", function () {
-  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  window.addEventListener("scroll", function () {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-  if (currentScroll > lastScrollTop) {
-    // downscroll
-    header.style.top = "-100px";
-  } else {
-    // upscroll
-    header.style.top = "0";
-  }
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
+    if (currentScroll > lastScrollTop) {
+      header.style.top = "-100px"; // hide
+    } else {
+      header.style.top = "0"; // show
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
 
-const buttons = document.querySelectorAll('.skill-categories button');
-const skillBoxes = document.querySelectorAll('.skill-box');
+  // ==================== Skill Category Filter ====================
+  const buttons = document.querySelectorAll('.skill-categories button');
+  const skillBoxes = document.querySelectorAll('.skill-box');
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    const filter = btn.getAttribute('data-filter');
-    skillBoxes.forEach(box => {
-      box.style.display =
-        filter === 'all' || box.classList.contains(filter) ? 'inline-block' : 'none';
+      const filter = btn.getAttribute('data-filter');
+      skillBoxes.forEach(box => {
+        box.style.display =
+          filter === 'all' || box.classList.contains(filter) ? 'inline-block' : 'none';
+      });
     });
   });
-});
 
-
-const carousel = document.getElementById('carousel');
+  // ==================== Carousel Logic ====================
+  const carousel = document.getElementById('carousel');
+  const wrapper = document.getElementById('carouselWrapper');
   const cards = Array.from(carousel.getElementsByClassName('project-card'));
   let currentIndex = 0;
 
@@ -137,7 +138,7 @@ const carousel = document.getElementById('carousel');
     });
   });
 
-  // Auto-scroll logic with pause on hover
+  // Auto-scroll
   let autoScroll = setInterval(nextCard, 3000);
 
   function resetAutoScroll() {
@@ -145,10 +146,11 @@ const carousel = document.getElementById('carousel');
     autoScroll = setInterval(nextCard, 3000);
   }
 
-  const wrapper = document.getElementById('carouselWrapper');
   wrapper.addEventListener('mouseenter', () => clearInterval(autoScroll));
   wrapper.addEventListener('mouseleave', () => {
     autoScroll = setInterval(nextCard, 3000);
   });
 
-  window.addEventListener('load', updateCarousel);
+  // Final init
+  updateCarousel();
+});
