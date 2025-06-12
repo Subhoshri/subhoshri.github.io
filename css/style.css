@@ -5,6 +5,107 @@
   font-family: 'Poppins', sans-serif;
 }
 
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #0a0a0a;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 1s ease;
+  }
+
+  .progress-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+
+  .progress-ring__bg {
+    fill: none;
+    stroke: #444;
+    stroke-width: 8;
+  }
+
+  .progress-ring__circle {
+    fill: none;
+    stroke: #ff2e63;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 282.6;
+    stroke-dashoffset: 282.6;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.2s;
+  }
+
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  #wave {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: #0a0a0a;
+    z-index: 2;
+    transition: 2s fade-in-out;
+  }
+
+  #start-section {
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: opacity 1s ease;
+    z-index: 3;
+    display: flex;
+  }
+
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+    background: #c4b49d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-char {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  #start-btn {
+    border: 1px solid #c4b49d;
+    background: transparent;
+    color: #c4b49d;
+    padding: 10px 40px;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    transition: all 0.3s ease;
+  }
+
+  #start-btn:hover {
+    background: #c4b49d;
+    color: #0a0a0a;
+  }
+
 .custom-cursor {
   width: 20px;
   height: 20px;
