@@ -54,6 +54,23 @@ window.addEventListener("scroll", function () {
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
+const buttons = document.querySelectorAll('.skill-categories button');
+const skillBoxes = document.querySelectorAll('.skill-box');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.getAttribute('data-filter');
+    skillBoxes.forEach(box => {
+      box.style.display =
+        filter === 'all' || box.classList.contains(filter) ? 'inline-block' : 'none';
+    });
+  });
+});
+
+
 const carousel = document.getElementById('carousel');
   const cards = Array.from(carousel.getElementsByClassName('project-card'));
   let currentIndex = 0;
