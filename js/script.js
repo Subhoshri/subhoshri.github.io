@@ -1,42 +1,46 @@
 window.addEventListener("DOMContentLoaded", () => {
-  // ==================== Loader Animation ====================
-  const circle = document.querySelector(".progress-ring__circle");
-  const text = document.querySelector(".progress-text");
-  const wave = document.getElementById("wave");
-  const preloader = document.getElementById("preloader");
-  const startSection = document.getElementById("start-section");
-  const startBtn = document.getElementById("start-btn");
+  window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.visibility = "hidden";
+    document.querySelector(".home-content").style.opacity = "1";
+  }, 2500); // loader shows for 2.5 seconds
+});
+const music = document.getElementById("bgMusic");
+const toggleBtn = document.getElementById("musicToggle");
 
-  const radius = 45;
-  const circumference = 2 * Math.PI * radius;
-  circle.style.strokeDasharray = `${circumference}`;
-
-  let progress = 0;
-  const updateProgress = () => {
-    const offset = circumference - (progress / 100) * circumference;
-    circle.style.strokeDashoffset = offset;
-    text.textContent = `${progress}%`;
-  };
-
-  const interval = setInterval(() => {
-    progress += 1;
-    updateProgress();
-    if (progress >= 100) {
-      clearInterval(interval);
-      wave.style.bottom = "0";
-      setTimeout(() => {
-        document.querySelector(".progress-wrapper").style.display = "none";
-        startSection.style.visibility = "visible";
-        startSection.style.opacity = 1;
-      }, 1000);
-    }
-  }, 20);
-
-  startBtn.addEventListener("click", () => {
-    preloader.style.opacity = 0;
-    preloader.style.pointerEvents = "none";
-    document.body.style.overflow = "auto";
+// Try to autoplay
+function tryAutoplay() {
+  music.play().then(() => {
+    toggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+  }).catch(() => {
+    // Retry on user interaction if autoplay was blocked
+    document.addEventListener("click", forcePlay, { once: true });
+    document.addEventListener("scroll", forcePlay, { once: true });
+    document.addEventListener("mousemove", forcePlay, { once: true });
   });
+}
+
+function forcePlay() {
+  music.play().then(() => {
+    toggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+  });
+}
+
+// Toggle manually
+toggleBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    toggleBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+  } else {
+    music.pause();
+    toggleBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+  }
+});
+
+// Start attempt on page load
+window.addEventListener("load", tryAutoplay);
 
   // ==================== Scroll-Based Header Hide/Show ====================
   let lastScrollTop = 0;
