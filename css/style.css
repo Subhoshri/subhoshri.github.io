@@ -994,7 +994,7 @@ html {
   align-items: center;
 }
 
-/* ========== RESPONSIVE BREAKPOINT ========== */
+/* ========== RESPONSIVENESS ========== */
 @media (max-width: 868px) {
   /* Header */
   .header {
